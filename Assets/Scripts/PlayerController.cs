@@ -4,6 +4,7 @@
 public class PlayerController : MonoBehaviour
 {
     private const int LEFT_MOUSE_BUTTON = 0;
+    private const int RIGHT_MOUSE_BUTTON = 1;
 
     [SerializeField] private GameObject _spinningArrowPrefab;
     [SerializeField] private float _spinningArrowLifetime;
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON))
+        if(Input.GetMouseButtonDown(RIGHT_MOUSE_BUTTON))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit raycastHit;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
             {
                 Vector3 target = raycastHit.point;
                 _motor.SetDestination(target);
-                GameObject spinningArrow = GameObject.Instantiate(_spinningArrowPrefab);
+                GameObject spinningArrow = Instantiate(_spinningArrowPrefab);
                 spinningArrow.transform.position += target;
                 Object.Destroy(spinningArrow, _spinningArrowLifetime);
             }
