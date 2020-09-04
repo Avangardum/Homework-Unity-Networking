@@ -1393,7 +1393,7 @@ MonoBehaviour:
   _maxVerticalRotation: 80
   _horizontalSensitivity: 0.25
   _verticalSensivity: 0.25
-  _distanceSensivity: 0.25
+  _distanceSensivity: 0.7
   _initialHorizontalRotation: -80
   _initialVerticalRotation: 45
   _initialDistance: 12
