@@ -31,6 +31,15 @@ public class CameraController : MonoBehaviour
         _verticalRotation = _initialVerticalRotation;
     }
 
+    private void Update()
+    {
+        if (!transform.parent.GetComponent<PlayerController>().isLocalPlayer)
+        {
+            gameObject.GetComponent<Camera>().enabled = false;
+            gameObject.GetComponent<AudioListener>().enabled = false;
+        }
+    }
+
     private void LateUpdate()
     {
         if(Input.GetMouseButton(LEFT_MOUSE_BUTTON) && _previousMousePosition != -Vector3.one)
