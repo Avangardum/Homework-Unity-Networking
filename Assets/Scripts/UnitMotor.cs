@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class UnitMotor : MonoBehaviour
+public class UnitMotor : NetworkBehaviour
 {
     private NavMeshAgent _navMeshAgent;
 

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(UnitMotor))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     private const int LEFT_MOUSE_BUTTON = 0;
     private const int RIGHT_MOUSE_BUTTON = 1;
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!hasAuthority)
+            return;
         if(Input.GetMouseButtonDown(RIGHT_MOUSE_BUTTON))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
